@@ -1,5 +1,10 @@
 .Square {
-	padding: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	height: 150px;
+	width: 150px;
 	font-size: 3rem;
 	font-weight: 800;
 }
