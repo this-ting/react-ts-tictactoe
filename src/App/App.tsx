@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Game from "../Game/Game";
+import Restart from "../Restart/Restart";
 
 interface AppProps {}
 
@@ -21,6 +22,7 @@ class App extends Component<AppProps, AppState> {
 				</header>
 				<body>
 					<Game />
+					<Restart />
 				</body>
 			</div>
 		);
