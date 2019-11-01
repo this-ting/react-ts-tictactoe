@@ -1,0 +1,9 @@
+.Game {
+	display: flex;
+	/* flex-direction: row; */
+	align-items: center;
+}
+
+.Game-HorizontalLine {
+	border-right: 8px solid #626c80;
+}
