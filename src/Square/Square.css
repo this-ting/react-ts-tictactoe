@@ -1,0 +1,10 @@
+.Square {
+	padding: 2.5rem;
+	font-size: 3rem;
+	font-weight: 800;
+}
+
+.Square:nth-child(1),
+.Square:nth-child(2) {
+	border-bottom: 8px solid #626c80;
+}
