@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
+import Game from "../Game/Game";
 
 interface AppProps {}
 
@@ -7,7 +8,7 @@ interface AppState {
 	player: string;
 }
 
-class App extends React.Component<AppProps, AppState> {
+class App extends Component<AppProps, AppState> {
 	state: AppState = {
 		player: "A",
 	};
@@ -18,6 +19,9 @@ class App extends React.Component<AppProps, AppState> {
 					<h1>Tic Tac Toe</h1>
 					<h3>It is player {this.state.player}'s turn!</h3>
 				</header>
+				<body>
+					<Game />
+				</body>
 			</div>
 		);
 	}
