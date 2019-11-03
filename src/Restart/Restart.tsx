@@ -1,10 +1,21 @@
 import React from "react";
 import "./Restart.css";
 
-const Restart = () => {
+interface RestartProps {
+	handleRestart: Function;
+}
+
+const Restart: React.FC<RestartProps> = ({ handleRestart }) => {
 	return (
 		<>
-			<button className="Restart">Restart Game</button>
+			<button
+				className="Restart"
+				onClick={() => {
+					handleRestart();
+				}}
+			>
+				Restart Game
+			</button>
 		</>
 	);
 };
