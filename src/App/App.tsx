@@ -25,6 +25,7 @@ class App extends Component<AppProps, AppState> {
 
 	handleRestart = () => {
 		this.setState(state => ({
+			player: "X",
 			game: [null, null, null, null, null, null, null, null, null],
 		}));
 	};
