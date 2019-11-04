@@ -12,15 +12,24 @@ interface AppState {
 }
 
 class App extends Component<AppProps, AppState> {
-	state: AppState = {
-		player: "X",
-		game: [null, null, "X", null, null, null, null, null, null],
-	};
+	constructor(props: AppProps) {
+		super(props);
+		this.state = {
+			player: "X",
+			game: [null, null, "X", null, null, null, null, null, null],
+		};
+	}
 
-	handlePlayerClick = () => {
-		this.setState(state => ({
-			player: state.player === "X" ? "O" : "X",
-		}));
+	handlePlayerClick = (event: Event, id: number) => {
+		console.log(id);
+		let squares: Array<string | null> = this.state.game.slice();
+		if (squares[id] === null) {
+			squares[id] = this.state.player;
+			this.setState(state => ({
+				player: state.player === "X" ? "O" : "X",
+				game: squares,
+			}));
+		}
 	};
 
 	handleRestart = () => {

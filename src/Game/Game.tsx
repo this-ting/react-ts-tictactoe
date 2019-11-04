@@ -12,12 +12,13 @@ class Game extends Component<GameProps> {
 	static contextType = PlayerContext;
 	player = this.context;
 
-	renderSquare = (i: number) => {
+	renderSquare = (id: number) => {
 		const { handlePlayerClick } = this.props;
 		return (
 			<Square
-				input={this.props.game[i]}
+				input={this.props.game[id]}
 				handlePlayerClick={handlePlayerClick}
+				id={id}
 			/>
 		);
 	};
