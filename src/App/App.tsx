@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Game from "../Game/Game";
+import GameOver from "../GameOver/GameOver";
 import Restart from "../Restart/Restart";
 import { PlayerProvider } from "../PlayerContext";
 
@@ -71,6 +72,7 @@ class App extends Component<AppProps, AppState> {
 							<h3>It is player {this.state.player}'s turn!</h3>
 						</header>
 						<body>
+							<GameOver />
 							<Game
 								game={this.state.game}
 								handlePlayerClick={this.handlePlayerClick}
