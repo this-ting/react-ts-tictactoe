@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Game from "../Game/Game";
-import GameOver from "../GameOver/GameOver";
 import Restart from "../Restart/Restart";
 import { PlayerProvider } from "../PlayerContext";
 
