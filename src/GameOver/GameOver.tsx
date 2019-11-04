@@ -3,13 +3,14 @@ import "./GameOver.css";
 
 interface GameOverProps {
 	handleRestart: Function;
+	winner: string;
 }
 
-const GameOver: React.FC<GameOverProps> = () => {
+const GameOver: React.FC<GameOverProps> = ({ handleRestart, winner }) => {
 	return (
 		<div className="GameOver">
 			<div className="GameOver-box">
-				Player __ Won!
+				{winner === "tie" ? `It was a tie!` : `Player ${winner} won!`}
 				<button className="GameOver-button">Play Again</button>
 			</div>
 		</div>
