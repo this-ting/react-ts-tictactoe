@@ -11,7 +11,14 @@ const GameOver: React.FC<GameOverProps> = ({ handleRestart, winner }) => {
 		<div className="GameOver">
 			<div className="GameOver-box">
 				{winner === "tie" ? `It was a tie!` : `Player ${winner} won!`}
-				<button className="GameOver-button">Play Again</button>
+				<button
+					className="GameOver-button"
+					onClick={() => {
+						handleRestart();
+					}}
+				>
+					Play Again
+				</button>
 			</div>
 		</div>
 	);
