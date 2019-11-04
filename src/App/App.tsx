@@ -34,7 +34,6 @@ class App extends Component<AppProps, AppState> {
 		for (let i = 0; i < win.length; i++) {
 			const [a, b, c] = win[i];
 			if (game[a] && game[a] === game[b] && game[a] === game[c]) {
-				console.log("winner " + game[a]);
 				return game[a];
 			}
 		}
