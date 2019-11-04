@@ -36,6 +36,12 @@ class App extends Component<AppProps, AppState> {
 			const [a, b, c] = win[i];
 			if (game[a] && game[a] === game[b] && game[a] === game[c]) {
 				return game[a];
+			} else if (
+				game.every(g => {
+					return typeof g === "string";
+				})
+			) {
+				return "tie";
 			}
 		}
 		return null;
@@ -63,6 +69,7 @@ class App extends Component<AppProps, AppState> {
 
 	render() {
 		const winner = this.determineWinner(this.state.game);
+
 		if (!winner) {
 			return (
 				<PlayerProvider value={this.state.player}>
@@ -72,7 +79,7 @@ class App extends Component<AppProps, AppState> {
 							<h3>It is player {this.state.player}'s turn!</h3>
 						</header>
 						<body>
-							<GameOver />
+							{/* <GameOver handleRestart={this.handleRestart} /> */}
 							<Game
 								game={this.state.game}
 								handlePlayerClick={this.handlePlayerClick}
@@ -87,7 +94,9 @@ class App extends Component<AppProps, AppState> {
 				<div className="App">
 					<header className="App-header">
 						<h1>Tic Tac Toe</h1>
-						<h2>Player {winner} won!</h2>
+						<h2>
+							{winner === "tie" ? `It was a tie!` : `Player ${winner} won!`}
+						</h2>
 						<h3>Play again by clicking on "Restart Game"</h3>
 					</header>
 					<body>
