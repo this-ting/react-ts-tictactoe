@@ -69,46 +69,30 @@ class App extends Component<AppProps, AppState> {
 
 	render() {
 		const winner = this.determineWinner(this.state.game);
+		const renderGameOver = !winner ? (
+			<Game game={this.state.game} handlePlayerClick={this.handlePlayerClick} />
+		) : (
+			<>
+				<GameOver handleRestart={this.handleRestart} winner={winner} />
+				<Game
+					game={this.state.game}
+					handlePlayerClick={this.handlePlayerClick}
+				/>
+			</>
+		);
 
-		if (!winner) {
-			return (
-				<PlayerProvider value={this.state.player}>
-					<div className="App">
-						<header className="App-header">
-							<h1>Tic Tac Toe</h1>
-							<h3>It is player {this.state.player}'s turn!</h3>
-						</header>
-						<body>
-							{/* <GameOver handleRestart={this.handleRestart} /> */}
-							<Game
-								game={this.state.game}
-								handlePlayerClick={this.handlePlayerClick}
-							/>
-							<Restart handleRestart={this.handleRestart} />
-						</body>
-					</div>
-				</PlayerProvider>
-			);
-		} else {
-			return (
-				<div className="App">
-					<header className="App-header">
-						<h1>Tic Tac Toe</h1>
-						<h2>
-							{winner === "tie" ? `It was a tie!` : `Player ${winner} won!`}
-						</h2>
-						<h3>Play again by clicking on "Restart Game"</h3>
-					</header>
-					<body>
-						<Game
-							game={this.state.game}
-							handlePlayerClick={this.handlePlayerClick}
-						/>
-						<Restart handleRestart={this.handleRestart} />
-					</body>
-				</div>
-			);
-		}
+		return (
+			<div className="App">
+				<header className="App-header">
+					<h1>Tic Tac Toe</h1>
+					<h3>It is player {this.state.player}'s turn!</h3>
+				</header>
+				<body>
+					{renderGameOver}
+					<Restart handleRestart={this.handleRestart} />
+				</body>
+			</div>
+		);
 	}
 }
 
