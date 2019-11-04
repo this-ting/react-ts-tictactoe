@@ -1,7 +1,11 @@
 import React from "react";
 import "./GameOver.css";
 
-const GameOver: React.FC = () => {
+interface GameOverProps {
+	handleRestart: Function;
+}
+
+const GameOver: React.FC<GameOverProps> = () => {
 	return (
 		<div className="GameOver">
 			<div className="GameOver-box">
